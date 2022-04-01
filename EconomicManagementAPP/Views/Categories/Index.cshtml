@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Categories>
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5">
+    <center>
+        <div class="col-sm-12 col-lg-8 pb-sm-2 pb-md-5">
+            <h3 class="fuente2 text-center mb-4">Categories List</h3>
+
+            <a asp-action="Create" class="btn btn-success mb-3 float-start">Create categorie <i class='bx bxs-file-plus'></i></a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-sm-8 text-center">Name</th>
+                        <th class="col-sm-8 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reordenable">
+                    @foreach (var categorie in Model)
+                    {
+                        <tr>
+                            <td>
+                                @categorie.Name
+                            </td>
+                            <td>
+                                <input type="hidden" value="@categorie.Id" class="ids" />
+                                <a class="btn btn-primary" asp-action="Modify" asp-route-id="@categorie.Id">Modify <i class='bx bxs-edit-alt'></i></a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@categorie.Id">Delete <i class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</div>

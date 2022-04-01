@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Transactions>
+
+@{
+    ViewData["Title"] = "List Transactions";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5">
+    <center>
+        <div class="col-sm-12 col-lg-8 pb-sm-2 pb-md-5">
+            <h3 class="fuente2 text-center mb-4">Transactions List</h3>
+
+            <a asp-action="Create" class="btn btn-success mb-3 float-start">Create Transaction <i class='bx bxs-file-plus'></i></a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-sm-4 text-center">Description</th>
+                        <th class="col-sm-4 text-center">Transaction Date</th>
+                        <th class="col-sm-4 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reordenable">
+                    @foreach (var transaction in Model)
+                    {
+                        <tr>
+                            <td>
+                                @transaction.Description
+                            </td>
+                            <td class="text-center">
+                                @transaction.TransactionDate
+                            </td>
+                            <td class="text-center">
+                                <input type="hidden" value="@transaction.Id" class="ids" />
+                                <a class="btn btn-primary" asp-action="Modify" asp-route-id="@transaction.Id">Modify <i class='bx bxs-edit-alt'></i></a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@transaction.Id">Delete <i class='bx bxs-trash'></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</div>

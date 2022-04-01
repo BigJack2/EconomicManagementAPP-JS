@@ -1,0 +1,27 @@
+﻿@model Accounts
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div style="margin-top:150px;" class="row px-sm-1 px-md-3 px-lg-3 py-5 d-flex align-items-center">
+
+    <div class="col-sm-12 col-lg-6 pb-sm-2 pb-md-5 text-center">
+        <img width="80%" src="~/img/varios/undraw_throw_away_re_x60k.svg" />
+    </div>
+
+    <div class="col-sm-12 col-lg-6 pt-5 pt-lg-0 text-center">
+
+        <div class="alert alert-danger" role="alert">
+            <h3 class="mb-3">¿Are you sure you want to delete the account?: @Model.Name</h3>
+        </div>
+
+        <form asp-action="DeleteAccount">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete <i class='bx bxs-trash' ></i></button>
+            <a class="btn btn-secondary" asp-action="Index">Cancel <i class='bx bxs-hand' ></i></a>
+        </form>
+
+    </div>
+</div>

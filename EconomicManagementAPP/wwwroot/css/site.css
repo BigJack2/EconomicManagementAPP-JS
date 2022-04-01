@@ -1,0 +1,86 @@
+/* Propiedades Genericas o de reseteo del body, para que no tenga propiedades que afecten el frontend */
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Creamos un div para el que el logo quede de fondo ya que si se linkea directamente al cambiar de vista el link dde la imagen se rompe */
+#logo {
+    width: 200px;
+    height: 52px;
+    background-image: url("../img/logo/logo.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+/*Clase para negrilla mediana del texto*/
+.text-bold {
+    font-weight: 600;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+
+/* Variable CSS en Root para estandarizar propiedades genericas de color*/
+:root {
+    --color0: #000;
+    --color1: #fff;
+    --color2: #4d4d4d;
+    --color3: #13674D;
+    --color4: #38AF79;
+}
+
+.bg1 {
+    background-color: var(--color3);
+}
+
+/*Clases para links*/
+.text-link1 {
+    color: var(--color3);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.text-link1:hover {
+    color: var(--color4);
+}
+
+/*Colores de texto*/
+.text-color1 {
+    color: var(--color4);
+}
+
+/* Fuente secundaria*/
+.fuente2 {
+    font-family: 'Merienda', cursive;
+}
+
+
+/* Sobreescribimos valores de botones de bootstrap */
+.btn-secondary {
+    background-color: var(--color3);
+    text-decoration: none;
+    transition: 0.5s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color4);
+    border-color: var(--color4) !important;
+}

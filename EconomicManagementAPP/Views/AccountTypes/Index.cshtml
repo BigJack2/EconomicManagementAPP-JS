@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AccountTypes>
+
+@{
+    ViewData["Title"] = "Account Types";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5">
+    <center>
+        <div class="col-sm-12 col-lg-8 pb-sm-2 pb-md-5">
+            <h3 class="fuente2 text-center mb-4">Account Types List</h3>
+
+            <a asp-action="Create" class="btn btn-success mb-3 float-start">Create account <i class='bx bxs-file-plus' ></i></a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="col-sm-8 text-center">Name</th>
+                        <th class="col-sm-8 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="reordenable">
+                    @foreach (var accountTypes in Model)
+                    {
+                        <tr>
+                            <td>
+                                @accountTypes.Name
+                            </td>
+                            <td>
+                                <input type="hidden" value="@accountTypes.Id" class="ids" />
+                                <a class="btn btn-primary" asp-action="Modify" asp-route-id="@accountTypes.Id">Modify <i class='bx bxs-edit-alt'></i></a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@accountTypes.Id">Delete <i class='bx bxs-trash'></i></a>
+                            </td>  
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </center>
+</div>

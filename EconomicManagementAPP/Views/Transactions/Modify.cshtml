@@ -1,0 +1,65 @@
+﻿@model Transactions
+@{
+    ViewData["Title"] = "Transactions";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5 d-flex align-items-center">
+    <div class="col-sm-12 col-lg-6 pb-sm-2 pb-md-5 text-center">
+        <img width="80%" src="~/img/varios/undraw_performance_overview_re_mqrq.svg" />
+    </div>
+    <div class="col-sm-12 col-lg-6 pt-sm-5 pt-lg-0">
+        <h3 class="fuente2 text-center mb-4">Modify Transaction: <p class="text-color1 fuente2">@Model.Description</p></h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <form asp-action="Modify">
+
+            <div class="mb-3">
+                <label asp-for="UserId" class="form-label text-bold">User ID*</label>
+                <input type="number" asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="TransactionDate" class="form-label text-bold">TransactionDate*</label>
+                <input  asp-for="TransactionDate" class="form-control" />
+                <span asp-validation-for="TransactionDate" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Total" class="form-label text-bold">Total*</label>
+                <input asp-for="Total" class="form-control" />
+                <span asp-validation-for="Total" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="OperationTypeId" class="form-label text-bold">Operation*</label>
+                <input type="number" asp-for="OperationTypeId" class="form-control" />
+                <span asp-validation-for="OperationTypeId" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Description" class="form-label text-bold">Description</label>
+                <input type="text" asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="AccountId" class="form-label text-bold">Account*</label>
+                <input type="number" asp-for="AccountId" class="form-control" />
+                <span asp-validation-for="AccountId" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="CategoryId" class="form-label text-bold">Category*</label>
+                <input type="number" asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"> </span>
+            </div>
+
+            <center>
+                <button type="submit" class="btn btn-primary">Modify</button>
+                <a class="btn btn-danger" asp-action="Index">Cancel</a>
+            </center>
+
+        </form>
+
+    </div>
+</div>
+</br></br></br></br></br></br>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,37 @@
+﻿@model AccountTypes
+
+@{
+    ViewData["Title"] = "Modify Account Types";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5 d-flex align-items-center">
+    <div class="col-sm-12 col-lg-6 pb-sm-2 pb-md-5 text-center">
+        <img width="80%" src="~/img/varios/undraw_performance_overview_re_mqrq.svg" />
+    </div>
+    <div class="col-sm-12 col-lg-6 pt-sm-5 pt-lg-0">
+        <h3 class="fuente2 text-center mb-4">Modify account type: <p class="text-color1 fuente2">@Model.Name</p></h3>
+
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <form asp-action="Modify">
+            <input type="hidden" asp-for="Id" />
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label text-bold">Name*</label>
+                <input type="text" asp-for="Name" placeholder="Enter Names." class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <center>
+                <button type="submit" class="btn btn-primary">Modify</button>
+                <a class="btn btn-danger" asp-action="Index">Cancel</a>
+            </center>
+
+        </form>
+
+    </div>
+</div>
+</br></br></br></br></br></br>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,43 @@
+﻿@model Users
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<div class="row px-sm-1 px-md-3 px-lg-3 py-5 d-flex align-items-center">
+    <div class="col-sm-12 col-lg-6 pb-sm-2 pb-md-5 text-center">
+        <img width="80%" src="~/img/varios/undraw_access_account_re_8spm.svg" />
+    </div>
+    <div class="col-sm-12 col-lg-6 pt-sm-5 pt-lg-0">
+        <h3 class="fuente2 text-center mb-4">Register User</h3>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <form asp-action="Create">
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label text-bold">Email*</label>
+                <input type="email" asp-for="Email" placeholder="Enter Personal Mail" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="StandarEmail" class="form-label text-bold">Standar Email*</label>
+                <input type="email" asp-for="StandarEmail" placeholder="Enter Standard Mail" class="form-control" />
+                <span asp-validation-for="StandarEmail" class="text-danger"> </span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label text-bold">Password*</label>
+                <input type="password" asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"> </span>
+            </div>
+
+            <center>
+            <button type="submit" class="btn btn-primary">Create</button>
+            <a class="btn btn-danger" asp-action="Index">Cancel</a>
+            </center>
+
+        </form>
+    </div>
+</div>
+</br></br></br></br></br></br>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}
